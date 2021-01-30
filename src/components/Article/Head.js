@@ -1,10 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import Context from '../../utils/Context';
 
 const ArticleHead = ({ article }) => {
-
   const router = useRouter();
   return (
     <Head>
@@ -20,7 +19,11 @@ const ArticleHead = ({ article }) => {
         property="article:published_time"
         content={article.publishDate}
       />
-      <meta key="article:author" property="article:author" content={article.author} />
+      <meta
+        key="article:author"
+        property="article:author"
+        content={article.author}
+      />
       <meta
         key="article:section"
         property="article:section"
@@ -55,6 +58,12 @@ const ArticleHead = ({ article }) => {
       <title key="title">{article.header}</title>
     </Head>
   );
+};
+
+ArticleHead.propTypes = {
+  article: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  ).isRequired,
 };
 
 export default ArticleHead;

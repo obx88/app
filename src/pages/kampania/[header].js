@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import fetch from 'isomorphic-unfetch';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
 import ArticleContent from '../../components/Article';
 import Loading from '../../components/Loading';
@@ -17,15 +15,6 @@ const Article = () => {
     </>
   );
 };
-
-// export async function getStaticPaths() {
-//   const res = await fetch('https://ingoodatmosphere.com/api/articles');
-//   const thumbnails = await res.json();
-//   const paths = thumbnails.map((thumbnail) => ({
-//     params: { header: thumbnail.link },
-//   }));
-//   return { paths, fallback: false };
-// }
 
 export async function getServerSideProps({ params }) {
   return { props: { header: params.header } };

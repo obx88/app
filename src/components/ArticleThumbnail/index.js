@@ -16,9 +16,7 @@ const ArticleThumbnail = ({
     <div className={styles.wrapper}>
       <Thumbnail images={images} link={link} />
       <h2 className={styles.header}>
-        {header} 
-        {' '}
-        {subHeader && <span>{subHeader}</span>}
+        {header} {subHeader && <span>{subHeader}</span>}
       </h2>
       <Tags tags={tags} />
       <p className={styles.description}>{description}</p>
