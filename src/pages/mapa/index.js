@@ -13,7 +13,6 @@ import styles from './index.module.scss';
 import setActiveSensor from '../../components/Map/setActiveSensor';
 
 const MapPage = ({ measurements: { data, status } }) => {
-  console.log(data);
   const [isLoaded, setIsLoaded] = useState(true);
   const [error, setError] = useState(null);
   const [activeSensor, dispatch] = useReducer(mapReducer);

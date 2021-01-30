@@ -3,12 +3,13 @@ import Context from '../../utils/Context';
 import styles from './Header.module.scss';
 
 const ArticleTitle = ({ article }) => {
-
   const imagesPath = `/data/articles/${article.images}/`;
   return (
     <div className={styles.header}>
       <h1 className={styles.text}>{article.header}</h1>
-      {article.subHeaders && <h2 className={styles.subheader}>{article.subHeaders}</h2>}
+      {article.subHeaders && (
+        <h2 className={styles.subheader}>{article.subHeaders}</h2>
+      )}
       <img
         className={styles.image}
         src={`${imagesPath}1280.jpg`}

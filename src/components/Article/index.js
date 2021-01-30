@@ -10,18 +10,16 @@ import styles from './index.module.scss';
 const Article = ({ setArticleHeight }) => {
   const container = useRef(null);
   const router = useRouter();
-  const [article, setArticle] = useState('')
+  const [article, setArticle] = useState('');
   useEffect(() => {
     const fetchData = async () => {
-      const { header } = router.query
+      const { header } = router.query;
 
-      const res = await fetch(
-        `/api/articles/${header}`,
-      );
+      const res = await fetch(`/api/articles/${header}`);
       const data = await res.json();
       setArticle(data[0]);
-    }
-    fetchData()
+    };
+    fetchData();
     setArticleHeight(container.current.offsetHeight);
   }, []);
 
